@@ -12,7 +12,7 @@ Here are a few stable combinations of circuits and vents that you should use to 
 
 Component 1 | Component 2 | Component 3 | Component 4 | Computation/s | Max Heat
 --- | --- | --- | --- | --- | ---
-Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 130 | 
+Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 130 | 3806
 
 
 ## All Circuits
@@ -35,7 +35,7 @@ LuV	| Wetwareprocessor | 24 | 5300 | 15 | -0.30
 LuV | Crystalprocessor Assembly | 20 | 5400 | 14 | -0.25
 LuV | Master Quantumcomputer | 16 | 5100 | 13 | -0.20
 LuV | Nanoprocessor Mainframe | 16 | 5000 | 12 | -0.20
-N/A | Notable	High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
+N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
 N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
 N/A | Accelerated Processing Unit T3 | 1590 | 9000 | 1006 | -0.30
 
