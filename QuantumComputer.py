@@ -7,13 +7,13 @@ class RackComponent:
         d = {'Quantum Circuit' : [128, 9000, 48, -0.60], # UXV
             'Pico Circuit' : [64, 8500, 40, -0.50], # UMV
             'Nano Circuit' : [48, 8000, 35, -0.45], # UIV
-            'Bioware Mainframe' : [40, 6000, 28, -0.40], # UEV
+            'Bio Mainframe' : [40, 6000, 28, -0.40], # UEV
             'Bioware Supercomputer' : [42, 6200, 30, -0.40], # UHV
             'Wetware Mainframe' : [38, 6000, 28, -0.40], # UHV
             'Biowareprocessor Assembly' : [40, 5900, 26, -0.35], # UV
             'Wetware Supercomputer' : [35, 5700, 22, -0.30], # UV
             'Crystalprocessor Mainframe' : [30, 5500, 18, -0.35], # UV
-            'Biowareprocessor' : [34, 5800, 20, -0.35], # ZPM
+            'Bioprocessor' : [34, 5800, 20, -0.35], # ZPM
             'Wetwareprocessor Assembly' : [30, 5600, 18, -0.30], # ZPM
             'Ultimate Crystalcomputer' : [26, 5400, 16, -0.30], # ZPM
             'Quantumprocessor Mainframe' : [22, 5200, 14, -0.30], # ZPM
@@ -103,8 +103,8 @@ def main():
     component3 = RackComponent('Advanced Heat Vent')
     component4 = RackComponent('Advanced Heat Vent')
 
-    overclock = 1.0
-    overvolt = 1.0
+    overclock = 1
+    overvolt = 1
     # -----------------------------------------------
 
     R = Rack([component1, component2, component3, component4], overclock, overvolt)
