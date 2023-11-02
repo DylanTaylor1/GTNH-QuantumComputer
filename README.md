@@ -4,4 +4,6 @@ This is a python script for determining the stability of a rack in a Quantum Com
 ## Stable Combinations
 Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game.
 
-1. 
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
