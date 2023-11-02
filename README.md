@@ -7,6 +7,8 @@ This is a python script for determining the stability of a rack in a Quantum Com
   - Enter the overclock and overvolt parameters. If your Quantum Computer does not have a parametrizer, these will both be 1.0
   - Run the script. It will output the final heat approximation (where it will stabilize) and whether or not the Quantum Computer will explode. If it is safe, it will also tell you the total computation of that rack
 
+![Edit Here](media/EditHere.png?)
+
 ## Stable Combinations
 Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
 
