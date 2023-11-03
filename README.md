@@ -16,6 +16,7 @@ Here are a few stable combinations of circuits and vents (last tested on GTNH 2.
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---
+Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 136
 Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.71 | 0.80 | 184
 CPU T3 | CPU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.47 | 0.80 | 351
 APU T3 | APU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 436
