@@ -31,7 +31,7 @@ LuV | Master Quantumcomputer | 16 | 5100 | 13 | -0.20
 LuV | Nanoprocessor Mainframe | 16 | 5000 | 12 | -0.20
 N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
 N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
-N/A | Accelerated Processing Unit T3 | 1590 | 9000 | 1006 | -0.30
+N/A | APU Creative | 1590 | 9000 | 1006 | -0.30
 
 # All Vents
 Vent | Heat Limit | Initial Heat | Heat Coefficient
@@ -44,9 +44,9 @@ Advanced Heat Vent | 10000 | -1 | 80
 # Stable Combinations
 Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
 
-Component 1 | Component 2 | Component 3 | Component 4 | Computation/s | Max Heat
+Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s |
 --- | --- | --- | --- | --- | ---
-Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 130 | 3806
-Nano Circuit | Nano Circuit | Nano Circuit | Advanced Heat Vent | 144 | 7623
-Pico Circuit | Pico Circuit | Pico Circuit | Advanced Heat Vent | 192 | 7992
-Quantum Circuit | Quantum Circuit | Quantum Circuit | Advanced Heat Vent | 384 | 8113
+Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 272
+Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.70 | 0.80 | 364
+APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 1,970
+APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 0.35 | 0.80 | 2,226
