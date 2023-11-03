@@ -43,11 +43,11 @@ LuV	| Wetwareprocessor | 24 | 5300 | 15 | -0.30
 LuV | Crystalprocessor Assembly | 20 | 5400 | 14 | -0.25
 LuV | Master Quantumcomputer | 16 | 5100 | 13 | -0.20
 LuV | Nanoprocessor Mainframe | 16 | 5000 | 12 | -0.20
-N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
-N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
-N/A | CPU T3 | 374 | 4500 | 241 | -0.20
-N/A | APU T3 | 606 | 4500 | 398 | -0.20
-N/A | APU Creative | 1590 | 9000 | 1006 | -0.30
+-- | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
+-- | Graphics Card T3 | 130 | 4500 | 111 | -0.30
+-- | CPU T3 | 374 | 4500 | 241 | -0.20
+-- | APU T3 | 606 | 4500 | 398 | -0.20
+-- | APU Creative | 1590 | 9000 | 1006 | -0.30
 
 # All Vents
 Vent | Heat Limit | Initial Heat | Heat Coefficient
