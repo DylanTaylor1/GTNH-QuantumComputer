@@ -45,7 +45,7 @@ Advanced Heat Vent | 10000 | -1 | 80
 Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s |
---- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | ---
 Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 272
 Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.70 | 0.80 | 364
 APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 1,970
