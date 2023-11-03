@@ -24,7 +24,7 @@ class RackComponent:
             'Nanoprocessor Mainframe' : [16, 5000, 12, -0.20], # LuV
             'High Energy Flow Circuit' : [24, 10000, 16, -0.25], # Other
             'Graphics Card T3' : [130, 4500, 111, -0.30], # Other
-            'Accelerated Processing Unit T3' : [1590, 9000, 1006, -0.30], # Other
+            'APU Creative' : [1590, 9000, 1006, -0.30], # Other
 
             'Heat Vent' : [0, 1000, -1, 10],
             'Reactor Heat Vent' : [0, 2500, -1, 20],
@@ -117,8 +117,8 @@ def main():
     component3 = RackComponent('Advanced Heat Vent')
     component4 = RackComponent('Advanced Heat Vent')
 
-    overclock = 1.0
-    overvolt = 1.0
+    overclock = 1.05
+    overvolt = 1.07
 
     racks = 2
     # -----------------------------------------------
