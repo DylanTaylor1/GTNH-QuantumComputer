@@ -1,4 +1,5 @@
 import numpy as np
+from colorama import Fore
 
 # ============================= DO NOT TOUCH =============================
 
@@ -32,18 +33,21 @@ class RackComponent:
 
         try:
             self.name = circuit
-            [self.computation, self.heatLimit, self.heatInit, self.heatCoeff] = d[circuit]
+            [self.computation, self.heatLimit, self.heatFac, self.heatCoeff] = d[circuit]
         except:
             print('ERROR: Check Spelling of Component Names\n')
 
 
 class Rack:
-    def __init__(self, componentList, overclock, overvolt):
+    def __init__(self, componentList, overclock, overvolt, racks):
         self.componentList = componentList
         self.overclock = overclock
         self.overvolt = overvolt
-
+        self.racks = racks
+        self.computationList = []
         self.heat = 0
+
+        # Loop
         oldHeat, newHeat = 0, 10000
         while np.abs(newHeat - oldHeat) > 0:
             oldHeat = newHeat
@@ -51,32 +55,42 @@ class Rack:
             self.update()
             newHeat = self.heat
         
-        print(f'Final Heat Approximation: {int(newHeat)} or {newHeat/100}%')
-
-        computation = 0
+        # Check Heat Limits
         for comp in self.componentList:
-            computation += comp.computation
             if comp.heatLimit < newHeat:
-                print(f'EXPLODE: This is over the heat limit for {comp.name}')
+                print(Fore.RED + f'\nEXPLODE: The heat will exceed the limit for {comp.name}' + Fore.WHITE)
+                print(f'Final Heat Approximation: {int(newHeat)}\n')
                 break
+
+        # Print Stats
         else:
-            print(f'SAFE: This is below the heat limit for all components. Total Computation {computation}/s.')
+            print(Fore.GREEN + '\nSAFE: The heat will NOT exceed the limit for any component.' + Fore.WHITE)
+            print(f'Final Heat Approximation: {int(newHeat)}')
+            print(f'Average Computation: {round(np.mean(self.computationList) * self.racks, 2)}/s')
+
+            powerEU = int(524288 * self.overclock * self.overvolt * (self.racks + 1))
+            powerA = round(self.overclock * self.overvolt * (self.racks + 1), 2)
+            print(f'Total Power: {powerEU} EU/t ({powerA}A UV)\n')
 
     
     def getComputation(self):
-        rackHeat = 0
+        computation, rackHeat = 0, 0
 
         for comp in self.componentList:
             if self.heat >= 0:
 
-                if comp.heatInit > 0:
-                    c = comp.heatInit * self.overvolt * (self.overclock**2)
+                if comp.heatFac > 0:
+                    c = comp.heatFac * self.overvolt * (self.overclock**2)
                 else:
-                    c = comp.heatInit
+                    c = comp.heatFac
 
                 rackHeat += c * (1 + comp.heatCoeff * self.heat / 10000)
+            
+                if (self.overvolt * 10 > 7 + np.random.random()):
+                    computation += comp.computation * max(0, min(1 + np.random.random() + (self.overvolt - 1) - (self.overclock - 1)/2, min(self.overclock, self.overvolt*2 - 0.25)))
 
         self.heat += np.ceil(rackHeat)
+        self.computationList.append(np.floor(computation))
 
     
     def update(self):
@@ -84,8 +98,8 @@ class Rack:
             heatC = 0
 
             for comp in self.componentList:
-                if comp.heatInit < 0:
-                    heatC += comp.heatInit * (self.heat / 10000)
+                if comp.heatFac < 0:
+                    heatC += comp.heatFac * (self.heat / 10000)
                 self.heat += max(-self.heat, np.ceil(heatC))
             
             self.heat -= max(int(self.heat / 1000), 1)
@@ -103,11 +117,13 @@ def main():
     component3 = RackComponent('Advanced Heat Vent')
     component4 = RackComponent('Advanced Heat Vent')
 
-    overclock = 1
-    overvolt = 1
+    overclock = 1.0
+    overvolt = 1.0
+
+    racks = 2
     # -----------------------------------------------
 
-    R = Rack([component1, component2, component3, component4], overclock, overvolt)
+    R = Rack([component1, component2, component3, component4], overclock, overvolt, racks)
 
 
 if __name__ == "__main__":
