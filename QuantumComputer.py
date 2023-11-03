@@ -22,9 +22,11 @@ class RackComponent:
             'Crystalprocessor Assembly' : [20, 5400, 14, -0.25], # LuV
             'Master Quantumcomputer' : [16, 5100, 13, -0.20], # LuV
             'Nanoprocessor Mainframe' : [16, 5000, 12, -0.20], # LuV
-            'High Energy Flow Circuit' : [24, 10000, 16, -0.25], # Other
-            'Graphics Card T3' : [130, 4500, 111, -0.30], # Other
-            'APU Creative' : [1590, 9000, 1006, -0.30], # Other
+            'High Energy Flow Circuit' : [24, 10000, 16, -0.25], # --
+            'Graphics Card T3' : [130, 4500, 111, -0.30], # --
+            'CPU T3' : [374, 4500, 241, -0.20], # --
+            'APU T3' : [606, 4500, 398, -0.20], # --
+            'APU Creative' : [1590, 9000, 1006, -0.30], # --
 
             'Heat Vent' : [0, 1000, -1, 10],
             'Reactor Heat Vent' : [0, 2500, -1, 20],
