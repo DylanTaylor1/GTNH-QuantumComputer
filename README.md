@@ -1,7 +1,6 @@
 # Introduction
 This is a python script for determining the stability of a rack in a Quantum Computer. Each rack has four total slots for circuits (which add heat) and vents (which dissipate heat). When using circuits and vents together, the heat will stabilize at some value 0-10000. It is important to keep the heat below the maximum heat limit for every component in the rack, otherwise there will be an explosion. Where exactly the heat will stabilize is not immediately obvious nor easily calculated which is where this script can help. Note that every rack is independent of every other rack which means one CANNOT have all circuits and another all vents even if they are part of the same Quantum Computer.
 
-
 # Usage
   - Download the python script QuantumComputer.py (only file that is needed). If you do not have a way to easily run python scripts, you can copy the code into an online IDE (https://www.online-python.com/)
   - Enter the names of the components that you would like to test under the "EDIT HERE" section at the bottom of the code. The names must be exactly as portrayed in the table (ie. Graphics Card T3)
@@ -9,18 +8,6 @@ This is a python script for determining the stability of a rack in a Quantum Com
   - Run the script. It will output the final heat approximation (where it will stabilize) and whether or not the Quantum Computer will explode. If it is safe, it will also tell you the average computation and total power consumption. This assumes all racks are identical.
 
 ![Edit Here](media/EditHere.png?)
-
-
-# Stable Combinations
-Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
-
-Component 1 | Component 2 | Component 3 | Component 4 | Computation/s | Max Heat
---- | --- | --- | --- | --- | ---
-Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 130 | 3806
-Nano Circuit | Nano Circuit | Nano Circuit | Advanced Heat Vent | 144 | 7623
-Pico Circuit | Pico Circuit | Pico Circuit | Advanced Heat Vent | 192 | 7992
-Quantum Circuit | Quantum Circuit | Quantum Circuit | Advanced Heat Vent | 384 | 8113
-
 
 # All Circuits
 Tier | Circuit | Computation | Heat Limit | Initial Heat | Heat Coefficient
@@ -46,7 +33,6 @@ N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
 N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
 N/A | Accelerated Processing Unit T3 | 1590 | 9000 | 1006 | -0.30
 
-
 # All Vents
 Vent | Heat Limit | Initial Heat | Heat Coefficient
 --- | --- | --- | ---
@@ -54,3 +40,13 @@ Heat Vent | 1000 | -1 | 10
 Reactor Heat Vent | 2500 | -1 | 20
 Overclocked Heat Vent	| 5000 | -1 | 40
 Advanced Heat Vent | 10000 | -1 | 80
+
+# Stable Combinations
+Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
+
+Component 1 | Component 2 | Component 3 | Component 4 | Computation/s | Max Heat
+--- | --- | --- | --- | --- | ---
+Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 130 | 3806
+Nano Circuit | Nano Circuit | Nano Circuit | Advanced Heat Vent | 144 | 7623
+Pico Circuit | Pico Circuit | Pico Circuit | Advanced Heat Vent | 192 | 7992
+Quantum Circuit | Quantum Circuit | Quantum Circuit | Advanced Heat Vent | 384 | 8113
