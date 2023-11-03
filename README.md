@@ -14,10 +14,11 @@ This is a python script for determining the stability of a rack in a Quantum Com
 # Stable Setups
 Here are a few stable combinations of circuits and vents (last tested on GTNH 2.4.0) that you should use to maximize computation depending on your available resources. Computation here is per rack.
 
-Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s |
+Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---
-Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 136
 Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.71 | 0.80 | 184
+CPU T3 | CPU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.47 | 0.80 | 351
+APU T3 | APU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 436
 APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 985
 APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 1,144
 
@@ -42,8 +43,8 @@ LuV | Crystalprocessor Assembly | 20 | 5400 | 14 | -0.25
 LuV | Master Quantumcomputer | 16 | 5100 | 13 | -0.20
 LuV | Nanoprocessor Mainframe | 16 | 5000 | 12 | -0.20
 N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
-N/A | CPU T3 | 374 | 4500 | 241 | -0.20
 N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
+N/A | CPU T3 | 374 | 4500 | 241 | -0.20
 N/A | APU T3 | 606 | 4500 | 398 | -0.20
 N/A | APU Creative | 1590 | 9000 | 1006 | -0.30
 
