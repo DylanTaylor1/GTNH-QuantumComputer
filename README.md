@@ -11,15 +11,15 @@ This is a python script for determining the stability of a rack in a Quantum Com
 
 ![Output](media/output.png?)
 
-# Stable Combinations
-Here are a few stable combinations of circuits and vents that you should use to maximize computation at different points in the game. I have personally tested these and can confirm your Quantum Computer will not explode.
+# Stable Setups
+Here are a few stable combinations of circuits and vents (last tested on GTNH 2.4.0) that you should use to maximize computation depending on your available resources. Computation here is per rack.
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s |
 --- | --- | --- | --- | --- | --- | ---
-Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 272
-Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.70 | 0.80 | 364
-APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 1,970
-APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 0.35 | 0.80 | 2,226
+Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.05 | 1.07 | 136
+Graphics Card T3 | Graphics Card T3 | Advanced Heat Vent | Advanced Heat Vent | 0.71 | 0.80 | 184
+APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 985
+APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 1,144
 
 # All Circuits
 Tier | Circuit | Computation | Heat Limit | Initial Heat | Heat Coefficient
