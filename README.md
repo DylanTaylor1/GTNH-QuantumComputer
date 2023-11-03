@@ -9,6 +9,8 @@ This is a python script for determining the stability of a rack in a Quantum Com
 
 ![Edit Here](media/EditHere.png?)
 
+![Output](media/output.png?)
+
 # All Circuits
 Tier | Circuit | Computation | Heat Limit | Initial Heat | Heat Coefficient
 --- | --- | --- | --- | --- | ---
