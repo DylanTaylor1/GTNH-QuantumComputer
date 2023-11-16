@@ -114,13 +114,13 @@ class Rack:
 def main():
 
     # ------------------ EDIT HERE ------------------
-    component1 = RackComponent('Graphics Card T3')
-    component2 = RackComponent('Advanced Heat Vent')
+    component1 = RackComponent('APU Creative')
+    component2 = RackComponent('APU Creative')
     component3 = RackComponent('Advanced Heat Vent')
     component4 = RackComponent('Advanced Heat Vent')
 
-    overclock = 1.05
-    overvolt = 1.07
+    overclock = 0.36
+    overvolt = 0.80
 
     racks = 2
     # -----------------------------------------------
