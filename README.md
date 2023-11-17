@@ -12,7 +12,7 @@ This is a python script for determining the stability of a rack in a Quantum Com
 ![Output](media/output.png?)
 
 # Stable Setups
-Here are a few stable combinations of circuits and vents (last tested on GTNH 2.4.0) that you should use to maximize computation depending on your available resources. Computation here is per rack.
+Here are a few stable combinations of circuits and vents (last tested on GTNH 2.4.0) that you should use to maximize computation depending on your available resources. The current best setup is available to you as soon as you build your first Quantum Computer. Note that computation here is per rack.
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---
