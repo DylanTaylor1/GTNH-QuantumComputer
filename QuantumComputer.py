@@ -1,5 +1,4 @@
 import numpy as np
-from colorama import Fore
 
 # ============================= DO NOT TOUCH =============================
 
@@ -37,7 +36,7 @@ class RackComponent:
             self.name = circuit
             [self.computation, self.heatLimit, self.heatFac, self.heatCoeff] = d[circuit]
         except:
-            print('ERROR: Check Spelling of Component Names\n')
+            print('\033[31m' + '\nERROR: Check Spelling of Component Names\n' + '\033[37m')
 
 
 class Rack:
@@ -60,15 +59,15 @@ class Rack:
         # Check Heat Limits
         for comp in self.componentList:
             if comp.heatLimit < newHeat:
-                print(Fore.RED + f'\nEXPLODE: The heat will exceed the limit for {comp.name}' + Fore.WHITE)
+                print('\033[31m' + f'\nEXPLODE: The heat will exceed the limit for {comp.name}.' + '\033[37m')
                 print(f'Final Heat Approximation: {int(newHeat)}\n')
                 break
 
         # Print Stats
         else:
-            print(Fore.GREEN + '\nSAFE: The heat will NOT exceed the limit for any component.' + Fore.WHITE)
+            print('\033[32m' + '\nSAFE: The heat will NOT exceed the limit for any component.' + '\033[37m')
             print(f'Final Heat Approximation: {int(newHeat)}')
-            print(f'Average Computation: {round(np.mean(self.computationList) * self.racks, 2)}/s')
+            print(f'Total Computation: {round(np.mean(self.computationList) * self.racks, 2)}/s')
 
             powerEU = int(524288 * self.overclock * self.overvolt * (self.racks + 1))
             powerA = round(self.overclock * self.overvolt * (self.racks + 1), 2)
@@ -114,13 +113,13 @@ class Rack:
 def main():
 
     # ------------------ EDIT HERE ------------------
-    component1 = RackComponent('Graphics Card T3')
-    component2 = RackComponent('Advanced Heat Vent')
+    component1 = RackComponent('APU Creative')
+    component2 = RackComponent('APU Creative')
     component3 = RackComponent('Advanced Heat Vent')
     component4 = RackComponent('Advanced Heat Vent')
 
-    overclock = 1.05
-    overvolt = 1.07
+    overclock = 0.36
+    overvolt = 0.80
 
     racks = 2
     # -----------------------------------------------
