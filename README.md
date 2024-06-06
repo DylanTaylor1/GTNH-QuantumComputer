@@ -1,18 +1,18 @@
 # Introduction
-This is a python script for determining the stability of a rack in a Quantum Computer. Each rack has four total slots for circuits (which add heat) and vents (which dissipate heat). When using circuits and vents together, the heat will stabilize at some value 0-10,000. It is important to keep the heat below the maximum heat limit for every component in the rack, otherwise there will be an explosion. Where exactly the heat will stabilize is not immediately obvious nor easily calculated which is where this script can help. Note that every rack is independent of every other rack which means one CANNOT have all circuits and another all vents even if they are part of the same Quantum Computer.
+This is a python script for determining the stability of a rack in a Quantum Computer. Every rack has four total slots for either circuits (to generate heat and computation packets) or vents (to dissipate heat). When turned on, the heat will stabilize at some value 0-10,000. It is important to keep the heat below the maximum heat limit for every component in the rack, otherwise they will void. Where exactly the heat will stabilize is not immediately obvious nor easily calculated which is where this script can help. Note that every rack is independent of every other rack meaning you CANNOT have all circuits in one and all vents in another even if they are both part of the same Quantum Computer.
 
 # Usage
-  - Download the python script QuantumComputer.py (only file that is needed). If you do not have a way to easily run python scripts, you can copy the code into an online IDE (https://www.online-python.com/)
-  - Enter the names of the components that you would like to test under the "EDIT HERE" section at the bottom of the code. The names must be exactly as portrayed in the table (ie. Graphics Card T3)
-  - Enter your Overclock and Overvolt values as well as how many racks are on your Quantum Computer
-  - Run the script. It will output the final heat approximation (where it will stabilize) and whether or not the Quantum Computer will explode. If it is safe, it will also tell you the average computation and total power consumption. This assumes all racks are identical.
+  - Download the python script QuantumComputer.py (only file that is needed). If you do not have a way to easily run python scripts, you can copy the code into an online IDE (https://www.online-python.com/).
+  - Enter the names of the components that you would like to test under the "EDIT HERE" section at the bottom of the code. The names must be exactly as portrayed in the table (ie. Graphics Card T3).
+  - Enter your Overclock and Overvolt values as well as how many racks are on your Quantum Computer.
+  - Run the script. It will output the final heat approximation (where it will stabilize) and whether or not any of the components will void from too much heat. If it is safe, it will also tell you the total computation and total power consumption assuming all racks are identical.
 
 ![Edit Here](media/edithere.png?)
 
 ![Output](media/output.png?)
 
 # Stable Setups
-Here are a few stable combinations of circuits and vents (last tested on GTNH 2.4.0) that you should use to maximize computation depending on your available resources. Computation here is per rack.
+Here are a few stable combinations of circuits and vents (last tested on GTNH 2.6.0) that should maximize computation depending on your available resources. Note that the current best setup is available to you as soon as you build your first Quantum Computer. The computation here is per rack which means a full length Quantum Computer can produce up to 27,456 computation per second at a cost of 3,774,873 EU/t (7.2A UV).
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---
