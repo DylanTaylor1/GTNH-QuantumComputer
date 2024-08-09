@@ -1,18 +1,55 @@
 # Introduction
-This is a python script for determining the stability of a rack in a Quantum Computer. Every rack has four total slots for either circuits (to generate heat and computation packets) or vents (to dissipate heat). When turned on, the heat will stabilize at some value 0-10,000. It is important to keep the heat below the maximum heat limit for every component in the rack, otherwise they will void. Where exactly the heat will stabilize is not immediately obvious nor easily calculated which is where this script can help. Note that every rack is independent of every other rack meaning you CANNOT have all circuits in one and all vents in another even if they are both part of the same Quantum Computer.
+This is a python script for determining the stability of a Quantum Computer. Every rack has four total slots for either circuits (to generate heat and computation packets) or vents (to dissipate heat). When turned on, the heat will stabilize at some value 0-10,000. It is important to keep the heat below the maximum heat limit for every component in the rack, otherwise the component(s) will void. Where exactly the heat will stabilize is neither obvious nor easily calculated which is where this script can help. Note that every rack is independent of every other rack meaning you CANNOT have all circuits in one and all vents in another even if they are both part of the same Quantum Computer.
 
 # Usage
-  - Download the python script QuantumComputer.py (only file that is needed). If you do not have a way to easily run python scripts, you can copy the code into an online IDE (https://www.online-python.com/).
-  - Enter the names of the components that you would like to test under the "EDIT HERE" section at the bottom of the code. The names must be exactly as portrayed in the table (ie. Graphics Card T3).
-  - Enter your Overclock and Overvolt values as well as how many racks are on your Quantum Computer.
+  - Download the appropriate `QuantumComputer.py` script depending on your version of GTNH. If you do not have a way to easily run python scripts, you can copy the code into an online IDE (https://www.online-python.com/).
+  - Enter the names of the components that you would like to test under the "EDIT HERE" section at the bottom of the code. The names must be exactly as portrayed in the dictionary at the top (ie. APU Creative).
+  - Enter the Overclock and Overvolt values as well as how many racks are on your Quantum Computer. The voltage setting has no effect other than determining amps.
   - Run the script. It will output the final heat approximation (where it will stabilize) and whether or not any of the components will void from too much heat. If it is safe, it will also tell you the total computation and total power consumption assuming all racks are identical.
 
 ![Edit Here](media/edithere.png?)
 
 ![Output](media/output.png?)
 
-# Stable Setups
-Here are a few stable combinations of circuits and vents (last tested on GTNH 2.6.0) that should maximize computation depending on your available resources. Note that the current best setup is available to you as soon as you build your first Quantum Computer. The computation here is per rack which means a full length Quantum Computer can produce up to 27,456 computation per second at a cost of 3,774,873 EU/t (7.2A UV).
+# Stable Setups (2.7.0+)
+Here are a few stable combinations of circuits and vents for GTNH versions greater than or equal to 2.7.0 that should maximize computation at different stages of the game. The computation here is per rack with means a full length Quantum Computer can produce up to 151,248 computation per second at a cost of 28,290,580 EU/t (53.96A UV).
+
+# All Circuits (2.7.0+)
+Tier | Circuit | Computation | Heat Limit | Heat Constant | Cool Constant
+--- | --- | --- | --- | --- | ---
+UXV | Quantum Circuit | 320 | 10000 | 10 | -1
+UMV | Pico Circuit | 260 | 9500 | 12 | -1
+UIV | Optical Mainframe | 260 | 8000 | 20 | -1
+UEV | Optical Computer | 240 | 8000 | 22 | -1
+UHV | Optical Assembly | 220 | 8000 | 24 | -1
+UV | Optical Processor | 200 | 8000 | 26 | -1
+UEV | Bio Mainframe | 260 | 6000 | 30 | -1
+UHV | Bioware Supercomputer | 240 | 6000 | 32 | -1
+UV | Biowareprocessor Assembly | 220 | 6000 | 34 | -1
+ZPM | Bioprocessor | 200 | 6000 | 36 | -1
+UHV | Wetware Mainframe | 220 | 4000 | 40 | -1
+UV | Wetware Supercomputer | 200 | 4000 | 42 | -1
+ZPM | Wetwareprocessor Assembly | 180 | 4000 | 44 | -1
+LuV | Wetwareprocessor | 160 | 4000 | 46 | -1
+UV | Crystalprocessor Mainframe | 120 | 2000 | 50 | -1
+ZPM | Ultimate Crystalcomputer | 100 | 2000 | 52 | -1
+LuV | Crystalprocessor Assembly | 80 | 2000 | 54 | -1
+IV | Crystalprocessor | 60 | 2000 | 56 | -1
+OC | APU Creative | 240 | 2000 | 40 | -1
+OC | APU T3 | 120 | 2000 | 42 | -1
+OC | Graphics Card T3 | 100 | 2000 | 44 | -1
+OC | CPU T3 | 80 | 2000 | 46 | -1
+
+# All Vents (2.7.0+)
+Vent | Heat Limit | Heat Constant | Cool Constant
+--- | --- | --- | ---
+Advanced Heat Vent | 10000 | -1 | 200
+Overclocked Heat Vent	| 8000 | -1 | 160
+Reactor Heat Vent | 6000 | -1 | 120
+Heat Vent | 4000 | -1 | 80
+
+# Stable Setups (2.6.0-)
+Here are a few stable combinations of circuits and vents for GTNH versions less than or equal to 2.6.1 that should maximize computation depending on your available resources. Note that the current best setup is available to you as soon as you build your first Quantum Computer. The computation here is per rack which means a full length Quantum Computer can produce up to 27,456 computation per second at a cost of 3,774,873 EU/t (7.2A UV).
 
 Component 1 | Component 2 | Component 3 | Component 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---
@@ -22,37 +59,3 @@ CPU T3 | CPU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.47 | 0.80 | 351
 APU T3 | APU T3 | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 436
 APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 0.62 | 0.80 | 985
 APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 0.36 | 0.80 | 1,144
-
-# All Circuits
-Tier | Circuit | Computation | Heat Limit | Initial Heat | Heat Coefficient
---- | --- | --- | --- | --- | ---
-UXV | Quantum Circuit | 128 | 9000 | 48 | -0.60
-UMV | Pico Circuit | 64 | 8500 | 40 | -0.50
-UIV	| Nano circuit | 48	| 8000 | 35 | -0.45
-UEV	| Bio Mainframe	| 40 | 6000 | 28 | -0.40
-UHV	| Bioware Supercomputer | 42 | 6200 | 30 | -0.40
-UHV | Wetware Mainframe | 38 |6000 | 25 | -0.40
-UV | Biowareprocessor Assembly | 40 | 5900 | 26 | -0.35
-UV | Wetware Supercomputer | 35 | 5700 | 22 | -0.30
-UV | Crystalprocessor Mainframe | 30 | 5500 | 18 | -0.35
-ZPM	| Bioprocessor | 34 | 5800 | 20 | -0.35
-ZPM | Wetwareprocessor Assembly | 30 | 5600 | 18 | -0.30
-ZPM | Ultimate Crystalcomputer | 26 | 5400 | 16 | -0.30
-ZPM | Quantumprocessor Mainframe | 22 | 5200 | 14 | -0.30
-LuV	| Wetwareprocessor | 24 | 5300 | 15 | -0.30
-LuV | Crystalprocessor Assembly | 20 | 5400 | 14 | -0.25
-LuV | Master Quantumcomputer | 16 | 5100 | 13 | -0.20
-LuV | Nanoprocessor Mainframe | 16 | 5000 | 12 | -0.20
-N/A | High Energy Flow Circuit | 24 | 10000 | 16 | -0.25
-N/A | Graphics Card T3 | 130 | 4500 | 111 | -0.30
-N/A | CPU T3 | 374 | 4500 | 241 | -0.20
-N/A | APU T3 | 606 | 4500 | 398 | -0.20
-N/A | APU Creative | 1590 | 9000 | 1006 | -0.30
-
-# All Vents
-Vent | Heat Limit | Initial Heat | Heat Coefficient
---- | --- | --- | ---
-Heat Vent | 1000 | -1 | 10
-Reactor Heat Vent | 2500 | -1 | 20
-Overclocked Heat Vent	| 5000 | -1 | 40
-Advanced Heat Vent | 10000 | -1 | 80
