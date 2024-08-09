@@ -15,7 +15,7 @@ This is a python script for determining the stability of a Quantum Computer. Eve
 Here are a few stable combinations of circuits and vents for GTNH versions greater than or equal to 2.7.0 that should maximize computation at different stages of the game. The computation here is for a full 24 racks which means a maximum length Quantum Computer can produce up to 151,248 computation per second at a cost of 28,290,580 EU/t (53.96A UV).
 
 Comp 1 | Comp 2 | Comp 3 | Comp 4 | Overclock | Overvolt | Amps (UV) | Computation/s
---- | --- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | --- | ---
 Crystal Mainframe | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.74 | 1.41 | 15.33 | 10,440
 Crystal Mainframe | Crystal Mainframe | Advanced Heat Vent | Advanced Heat Vent | 1.22 | 1.00 | 7.62 | 13,656
 APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.85 | 1.53 | 17.69 | 23,088
