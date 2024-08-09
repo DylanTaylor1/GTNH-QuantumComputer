@@ -127,7 +127,7 @@ def main():
     overclock = 0.36
     overvolt = 0.80
 
-    racks = 24
+    racks = 2
     voltage = 'UV' # No effect other than determining amps (min: ZPM)
     # -----------------------------------------------
 
