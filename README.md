@@ -12,24 +12,24 @@ This is a python script for determining the stability of a Quantum Computer. Eve
 ![Output](media/output.png?)
 
 # Stable Setups (2.7.0+)
-Here are a few stable combinations of circuits and vents for GTNH versions greater than or equal to 2.7.0 that should maximize computation at different stages of the game. The computation here is for a full 24 racks which means a maximum length Quantum Computer can produce up to 151,248 computation per second at a cost of 28,290,580 EU/t (53.96A UV).
+Here are a few stable combinations of circuits and vents for GTNH 2.7.0+ that should maximize computation at different stages of the game. The computation here is for a full 24 racks which means a maximum length Quantum Computer can produce up to 151,248 computation per second at a cost of 28,290,580 EU/t (53.96A UV).
 
 Comp 1 | Comp 2 | Comp 3 | Comp 4 | Overclock | Overvolt | Amps (UV) | Computation/s
 --- | --- | --- | --- | --- | --- | --- | ---
-Crystal Mainframe | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.74 | 1.41 | 15.33 | 10,440
-Crystal Mainframe | Crystal Mainframe | Advanced Heat Vent | Advanced Heat Vent | 1.22 | 1.00 | 7.62 | 13,656
-APU Creative | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 1.85 | 1.53 | 17.69 | 23,088
-APU Creative | APU Creative | Advanced Heat Vent | Advanced Heat Vent | 1.44 | 1.03 | 9.27 | 30,312
-Wetware Mainframe | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 2.14 | 1.88 | 25.14 | 27,576
-Wetware Mainframe | Wetware Mainframe | Advanced Heat Vent | Advanced Heat Vent | 1.61 | 1.27 | 12.78 | 33,984
-Bio Mainframe | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 2.59 | 2.37 | 38.36 | 45,864
-Bio Mainframe | Bio Mainframe | Advanced Heat Vent | Advanced Heat Vent | 1.92 | 1.61 | 19.32 | 53,352
-Optical Mainframe | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 3.19 | 3.01 | 60.01 | 67,536
-Optical Mainframe | Optical Mainframe | Advanced Heat Vent | Advanced Heat Vent | 2.31 | 2.06 | 29.74 | 74,400
-Pico Circuit | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 3.96 | 3.80 | 94.05 | 101,472
-Pico Circuit | Pico Circuit | Advanced Heat Vent | Advanced Heat Vent | 2.84 | 2.61 | 46.33 | 107,448
-Quantum Circuit | Advanced Heat Vent | Advanced Heat Vent | Advanced Heat Vent | 4.31 | 4.10 | 110.44 | 143,976
-Quantum Circuit | Quantum Circuit | Advanced Heat Vent | Advanced Heat Vent | 3.04 | 2.84 | 53.96 | 151,248
+Crystal Mainframe | Cooling Core | Cooling Core | Cooling Core | 1.74 | 1.41 | 15.33 | 10,440
+Crystal Mainframe | Crystal Mainframe | Cooling Core | Cooling Core | 1.22 | 1.00 | 7.62 | 13,656
+APU Creative | Cooling Core | Cooling Core | Cooling Core | 1.85 | 1.53 | 17.69 | 23,088
+APU Creative | APU Creative | Cooling Core | Cooling Core | 1.44 | 1.03 | 9.27 | 30,312
+Wetware Mainframe | Cooling Core | Cooling Core | Cooling Core | 2.14 | 1.88 | 25.14 | 27,576
+Wetware Mainframe | Wetware Mainframe | Cooling Core | Cooling Core | 1.61 | 1.27 | 12.78 | 33,984
+Bio Mainframe | Cooling Core | Cooling Core | Cooling Core | 2.59 | 2.37 | 38.36 | 45,864
+Bio Mainframe | Bio Mainframe | Cooling Core | Cooling Core | 1.92 | 1.61 | 19.32 | 53,352
+Optical Mainframe | Cooling Core | Cooling Core | Cooling Core | 3.19 | 3.01 | 60.01 | 67,536
+Optical Mainframe | Optical Mainframe | Cooling Core | Cooling Core | 2.31 | 2.06 | 29.74 | 74,400
+Pico Circuit | Cooling Core | Cooling Core | Cooling Core | 3.96 | 3.80 | 94.05 | 101,472
+Pico Circuit | Pico Circuit | Cooling Core | Cooling Core | 2.84 | 2.61 | 46.33 | 107,448
+Quantum Circuit | Cooling Core | Cooling Core | Cooling Core | 4.31 | 4.10 | 110.44 | 143,976
+Quantum Circuit | Quantum Circuit | Cooling Core | Cooling Core | 3.04 | 2.84 | 53.96 | 151,248
 
 # All Circuits (2.7.0+)
 Tier | Circuit | Computation | Heat Limit | Heat Constant | Cool Constant
@@ -60,13 +60,14 @@ OC | CPU T3 | 80 | 2000 | 46 | -1
 # All Vents (2.7.0+)
 Vent | Heat Limit | Heat Constant | Cool Constant
 --- | --- | --- | ---
-Advanced Heat Vent | 10000 | -1 | 200
-Overclocked Heat Vent	| 8000 | -1 | 160
-Reactor Heat Vent | 6000 | -1 | 120
-Heat Vent | 4000 | -1 | 80
+Cooling Core | 10000 | -1 | 200
+Advanced Heat Vent | 8000 | -1 | 160
+Overclocked Heat Vent	| 6000 | -1 | 120
+Reactor Heat Vent | 4000 | -1 | 80
+Heat Vent | 2000 | -1 | 40
 
 # Stable Setups (2.6.0-)
-Here are a few stable combinations of circuits and vents for GTNH versions less than or equal to 2.6.1 that should maximize computation depending on your available resources. Note that the current best setup is available to you as soon as you build your first Quantum Computer. The computation here is per rack which means a full length Quantum Computer can produce up to 27,456 computation per second at a cost of 3,774,873 EU/t (7.2A UV).
+Here are a few stable combinations of circuits and vents for GTNH 2.6.1- that should maximize computation depending on your available resources. Note that the current best setup is available to you as soon as you build your first Quantum Computer. The computation here is per rack which means a full length Quantum Computer can produce up to 27,456 computation per second at a cost of 3,774,873 EU/t (7.2A UV).
 
 Comp 1 | Comp 2 | Comp 3 | Comp 4 | Overclock | Overvolt | Computation/s
 --- | --- | --- | --- | --- | --- | ---

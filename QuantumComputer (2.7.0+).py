@@ -34,10 +34,11 @@ class RackComponent:
                       'Graphics Card T3' : [100, 2000, 44, -1], # OC
                                 'CPU T3' : [80, 2000, 46, -1], # OC
 
-                    'Advanced Heat Vent' : [0, 10000, -1, 200], # Vent
-                 'Overclocked Heat Vent' : [0, 8000, -1, 160], # Vent
-                     'Reactor Heat Vent' : [0, 6000, -1, 120], # Vent
-                             'Heat Vent' : [0, 4000, -1, 80]} # Vent
+                          'Cooling Core' : [0, 10000, -1, 200], # Vent
+                    'Advanced Heat Vent' : [0, 8000, -1, 160], # Vent
+                 'Overclocked Heat Vent' : [0, 6000, -1, 120], # Vent
+                     'Reactor Heat Vent' : [0, 4000, -1, 80], # Vent
+                             'Heat Vent' : [0, 2000, -1, 40]} # Vent
 
         try:
             self.name, [self.computation, self.heatLimit, self.heatConstant, self.coolConstant] = circuit, d[circuit]
@@ -99,7 +100,7 @@ class Rack:
                 rackHeat += h * (1 + comp.coolConstant * self.heat / 100000)
 
                 if (self.overvolt > np.random.random()):
-                    computation += comp.computation * max(0, (1 + self.overclock**2) / (1 + (self.overclock - self.overvolt)**2))
+                    computation += comp.computation * (1 + self.overclock**2) / (1 + (self.overclock - self.overvolt)**2)
 
         self.heat += np.ceil(rackHeat)
         self.computationList.append(np.floor(computation))
@@ -125,13 +126,13 @@ class Rack:
 def main():
 
     # ------------------ EDIT HERE ------------------
-    component1 = RackComponent('Wetware Mainframe')
-    component2 = RackComponent('Wetware Mainframe')
-    component3 = RackComponent('Advanced Heat Vent')
-    component4 = RackComponent('Advanced Heat Vent')
+    component1 = RackComponent('APU Creative')
+    component2 = RackComponent('APU Creative')
+    component3 = RackComponent('Cooling Core')
+    component4 = RackComponent('Cooling Core')
 
-    overclock = 1.61
-    overvolt = 1.27
+    overclock = 1.44
+    overvolt = 1.03
 
     racks = 2
     voltage = 'UV' # No effect other than determining amps (min: ZPM)
