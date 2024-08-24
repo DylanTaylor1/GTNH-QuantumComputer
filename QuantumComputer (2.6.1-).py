@@ -49,7 +49,7 @@ class Rack:
         self.computationList = []
         self.heat = 0
 
-        d = {'ZPM':1, 'UV':4, 'UHV':16, 'UEV':64, 'UIV':256, 'UMV':1024, 'UXV':4096}
+        d = {'ZPM':0.25, 'UV':1, 'UHV':4, 'UEV':16, 'UIV':64, 'UMV':256, 'UXV':1024}
         div = d[voltage.upper()]
 
         # Loop
