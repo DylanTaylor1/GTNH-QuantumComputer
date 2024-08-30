@@ -29,8 +29,8 @@ class RackComponent:
              'Crystalprocessor Assembly' : [80, 2000, 54, -1], # LuV
                       'Crystalprocessor' : [60, 2000, 56, -1], # IV
 
-                          'APU Creative' : [240, 2000, 40, -1], # OC
-                                'APU T3' : [120, 2000, 42, -1], # OC
+                                'APU T3' : [240, 2000, 40, -1], # OC
+                                'APU T2' : [120, 2000, 42, -1], # OC
                       'Graphics Card T3' : [100, 2000, 44, -1], # OC
                                 'CPU T3' : [80, 2000, 46, -1], # OC
 
@@ -126,8 +126,8 @@ class Rack:
 def main():
 
     # ------------------ EDIT HERE ------------------
-    component1 = RackComponent('APU Creative')
-    component2 = RackComponent('APU Creative')
+    component1 = RackComponent('APU T3')
+    component2 = RackComponent('APU T3')
     component3 = RackComponent('Cooling Core')
     component4 = RackComponent('Cooling Core')
 
