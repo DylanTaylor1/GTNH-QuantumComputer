@@ -6,6 +6,7 @@ class RackComponent:
     def __init__(self, circuit):
         d = {
                                 # 'NAME' : [COMP, HEAT LIMIT, HEAT CONSTANT, COOL CONSTANT]
+                        'Planck Circuit' : [360, 10000, 8, -1], # MAX
                        'Quantum Circuit' : [320, 10000, 10, -1], # UXV
                           'Pico Circuit' : [260, 9500, 12, -1], # UMV
 
