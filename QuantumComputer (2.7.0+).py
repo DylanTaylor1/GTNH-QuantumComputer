@@ -2,44 +2,44 @@ import numpy as np
 
 # ============================= [DO NOT TOUCH] =============================
 
-class RackComponent:
+class rackComponent:
     def __init__(self, circuit):
         d = {
-                                # 'NAME' : [COMP, HEAT LIMIT, HEAT CONSTANT, COOL CONSTANT]
-                        'Planck Circuit' : [360, 10000, 8, -1], # MAX
-                       'Quantum Circuit' : [320, 10000, 10, -1], # UXV
-                          'Pico Circuit' : [260, 9500, 12, -1], # UMV
+                       # 'NAME' : [COMP, HEAT LIMIT, HEAT CONSTANT, COOL CONSTANT]
+               'Planck Circuit' : [360, 10000, 8, -1], # MAX
+              'Quantum Circuit' : [320, 10000, 10, -1], # UXV
+                 'Pico Circuit' : [260, 9500, 12, -1], # UMV
 
-                     'Optical Mainframe' : [260, 8000, 20, -1], # UIV
-                      'Optical Computer' : [240, 8000, 22, -1], # UEV
-                      'Optical Assembly' : [220, 8000, 24, -1], # UHV
-                     'Optical Processor' : [200, 8000, 26, -1], # UV
+            'Optical Mainframe' : [260, 8000, 20, -1], # UIV
+        'Optical Supercomputer' : [240, 8000, 22, -1], # UEV
+             'Optical Assembly' : [220, 8000, 24, -1], # UHV
+            'Optical Processor' : [200, 8000, 26, -1], # UV
 
-                         'Bio Mainframe' : [260, 6000, 30, -1], # UEV
-                 'Bioware Supercomputer' : [240, 6000, 32, -1], # UHV
-             'Biowareprocessor Assembly' : [220, 6000, 34, -1], # UV
-                          'Bioprocessor' : [200, 6000, 36, -1], # ZPM
+            'Bioware Mainframe' : [260, 6000, 30, -1], # UEV
+        'Bioware Supercomputer' : [240, 6000, 32, -1], # UHV
+             'Bioware Assembly' : [220, 6000, 34, -1], # UV
+            'Bioware Processor' : [200, 6000, 36, -1], # ZPM
 
-                     'Wetware Mainframe' : [220, 4000, 40, -1], # UHV
-                 'Wetware Supercomputer' : [200, 4000, 42, -1], # UV
-             'Wetwareprocessor Assembly' : [180, 4000, 44, -1], # ZPM
-                      'Wetwareprocessor' : [160, 4000, 46, -1], # LuV
+            'Wetware Mainframe' : [220, 4000, 40, -1], # UHV
+        'Wetware Supercomputer' : [200, 4000, 42, -1], # UV
+             'Wetware Assembly' : [180, 4000, 44, -1], # ZPM
+            'Wetware Processor' : [160, 4000, 46, -1], # LuV
 
-            'Crystalprocessor Mainframe' : [120, 2000, 50, -1], # UV
-              'Ultimate Crystalcomputer' : [100, 2000, 52, -1], # ZPM
-             'Crystalprocessor Assembly' : [80, 2000, 54, -1], # LuV
-                      'Crystalprocessor' : [60, 2000, 56, -1], # IV
+            'Crystal Mainframe' : [120, 2000, 50, -1], # UV
+        'Crystal Supercomputer' : [100, 2000, 52, -1], # ZPM
+             'Crystal Assembly' : [80, 2000, 54, -1], # LuV
+            'Crystal Processor' : [60, 2000, 56, -1], # IV
 
-                                'APU T3' : [240, 2000, 40, -1], # OC
-                                'APU T2' : [120, 2000, 42, -1], # OC
-                      'Graphics Card T3' : [100, 2000, 44, -1], # OC
-                                'CPU T3' : [80, 2000, 46, -1], # OC
+                       'APU T3' : [240, 2000, 40, -1], # OC
+                       'APU T2' : [120, 2000, 42, -1], # OC
+             'Graphics Card T3' : [100, 2000, 44, -1], # OC
+                       'CPU T3' : [80, 2000, 46, -1], # OC
 
-                          'Cooling Core' : [0, 10000, -1, 200], # Vent
-                    'Advanced Heat Vent' : [0, 8000, -1, 160], # Vent
-                 'Overclocked Heat Vent' : [0, 6000, -1, 120], # Vent
-                     'Reactor Heat Vent' : [0, 4000, -1, 80], # Vent
-                             'Heat Vent' : [0, 2000, -1, 40]} # Vent
+                 'Cooling Core' : [0, 10000, -1, 200], # Vent
+           'Advanced Heat Vent' : [0, 8000, -1, 160], # Vent
+        'Overclocked Heat Vent' : [0, 6000, -1, 120], # Vent
+            'Reactor Heat Vent' : [0, 4000, -1, 80], # Vent
+                    'Heat Vent' : [0, 2000, -1, 40]} # Vent
 
         try:
             self.name, [self.computation, self.heatLimit, self.heatConstant, self.coolConstant] = circuit, d[circuit]
@@ -47,99 +47,114 @@ class RackComponent:
             print('\033[31m' + '\nERROR: Check Spelling of Component Names\n' + '\033[37m')
 
 
-class Rack:
-    def __init__(self, componentList, overclock, overvolt, racks, voltage):
-        self.componentList = componentList
-        self.overclock = overclock
-        self.overvolt = overvolt
-        self.racks = racks
-        self.computationList = []
-        self.heat = 0
+def getHeat(components, overclock, overvolt):
+    oldHeat, newHeat = -1, 0
+    while abs(newHeat - oldHeat) > 0:
+        oldHeat = newHeat
 
-        d = {'ZPM':1, 'UV':4, 'UHV':16, 'UEV':64, 'UIV':256, 'UMV':1024, 'UXV':4096}
-        div = d[voltage.upper()]
+        # Component Heat
+        rackHeat = 0
+        for comp in components:
+            if newHeat >= 0:
+                h = comp.heatConstant * overclock * (overvolt**2) if comp.heatConstant > 0 else -10
+                rackHeat += h * (1 + comp.coolConstant * newHeat / 100000)
 
-        # Loop
-        oldHeat, newHeat = 0, 10000
-        while np.abs(newHeat - oldHeat) > 0:
-            oldHeat = newHeat
-            self.getComputation()
-            self.update()
-            newHeat = self.heat
+        newHeat += np.ceil(rackHeat)
 
-        # Check Heat Limits
-        for comp in self.componentList:
-            if comp.heatLimit <= newHeat:
-                print('\033[31m' + f'\nVOID: The heat will exceed the limit for {comp.name} ({comp.heatLimit}).' + '\033[37m')
-                print(f'Final Heat Approximation: {int(newHeat)}\n')
-                break
+        # Computer Heat
+        if newHeat > 0:
 
-        # Print Stats
-        else:
-            heat = format(newHeat, ',.0f')
-            comp = format(round(np.mean(self.computationList) * self.racks, 2), ',.0f')
-            powerEU = format(int(131072 * self.overclock * self.overvolt * (self.racks + 1)), ',d')
-            powerA = max(0.01, round(self.overclock * self.overvolt * (self.racks + 1) / div, 2))
-
-            print('\033[32m' + '\nSAFE: The heat will NOT exceed the limit for any component.' + '\033[37m')
-            print(f'Final Heat Approximation: {heat}')
-            print(f'Average Computation: {comp}/s')
-            print(f'Total Power: {powerEU} EU/t ({powerA}A {voltage.upper()})\n')
-
-
-    def getComputation(self):
-        computation, rackHeat = 0, 0
-
-        for comp in self.componentList:
-            if self.heat >= 0:
-
-                if comp.heatConstant > 0:
-                    h = comp.heatConstant * (self.overclock) * (self.overvolt)**2
-                else:
-                    h = -10
-
-                rackHeat += h * (1 + comp.coolConstant * self.heat / 100000)
-
-                if (self.overvolt > np.random.random()):
-                    computation += comp.computation * (1 + self.overclock**2) / (1 + (self.overclock - self.overvolt)**2)
-
-        self.heat += np.ceil(rackHeat)
-        self.computationList.append(np.floor(computation))
-
-
-    def update(self):
-
-        if self.heat > 0:
             heatC = 0
-
-            for comp in self.componentList:
+            for comp in components:
                 if comp.heatConstant < 0:
-                    heatC += comp.heatConstant * (self.heat / 10000)
+                    heatC += comp.heatConstant * (newHeat / 10000)
 
-            self.heat += max(-self.heat, np.ceil(heatC))
-            self.heat -= max(int(self.heat / 1000), 20)
+            newHeat += max(-newHeat, np.ceil(heatC))
+            newHeat -= max(int(newHeat / 1000), 20)
 
-        elif self.heat < 0:
-            self.heat -= min(int(self.heat / 1000), -1)
+        elif newHeat < 0:
+            newHeat -= min(int(newHeat / 1000), -1)
+
+        newHeat = max(0, newHeat)
+
+    return int(newHeat)
+
+
+def getComputation(components, overclock, overvolt, racks):
+    computation = min(overvolt, 1) * sum(component.computation for component in components) * (1 + overclock**2) / (1 + (overclock - overvolt)**2)
+    return int(computation) * racks
+
+
+def getPower(voltage, overclock, overvolt, racks):
+    d = {'ZPM':1, 'UV':4, 'UHV':16, 'UEV':64, 'UIV':256, 'UMV':1024, 'UXV':4096}
+
+    powerEU = max(32768, 131072 * overclock * overvolt)
+    powerA = max(0.01, overclock * overvolt * (racks + 1) / d[voltage.upper()])
+
+    return int(powerEU) * (racks + 1), round(powerA, 2)
+
+
+def printStats(components, voltage, overclock, overvolt, heat, computation, powerEU, powerA):
+
+    # Heat is NOT safe
+    for comp in components:
+        if heat >= comp.heatLimit:
+            print('\033[31m' + f'\nVOID: The final heat exceeds the limit for {comp.name} ({comp.heatLimit}).' + '\033[37m')
+            print(f'Overclock/Overvolt: {overclock}/{overvolt}')
+            print(f'Final Heat Approximation: {int(heat)}\n')
+            break
+
+    # Heat is safe
+    else:
+        print('\033[32m' + '\nSAFE: The final heat does NOT exceed the limit for any component.' + '\033[37m')
+        print(f'Overclock/Overvolt: {overclock:.2f}/{overvolt:.2f}')
+        print(f'Final Heat Approximation: {heat:,d}')
+        print(f'Average Computation: {computation:,d}/s')
+        print(f'Total Power: {powerEU:,d} EU/t ({powerA}A {voltage.upper()})\n')
 
 # =========================== [END DO NOT TOUCH] ===========================
 
 def main():
 
     # ------------------ EDIT HERE ------------------
-    component1 = RackComponent('APU T3')
-    component2 = RackComponent('APU T3')
-    component3 = RackComponent('Cooling Core')
-    component4 = RackComponent('Cooling Core')
+    components = [
+        rackComponent('APU T3'),
+        rackComponent('APU T3'),
+        rackComponent('Cooling Core'),
+        rackComponent('Cooling Core')]
 
-    overclock = 1.44
+    overclock = 1.43
     overvolt = 1.03
+    optimize = True # Ignore the custom OC/OV values to instead find the optimal OC/OV values
 
-    racks = 2
-    voltage = 'UV' # No effect other than determining amps (min: ZPM)
+    racks = 24
+    voltage = 'UV' # No effect other than determining amps (min:ZPM)
     # -----------------------------------------------
 
-    R = Rack([component1, component2, component3, component4], overclock, overvolt, racks, voltage)
+    if optimize:
+        maxHeat = min(component.heatLimit for component in components) - 20
+        overclock, overvolt = 1, 1
+
+        # Start with Big Increments
+        while getHeat(components, overclock + 0.1, overvolt + 0.1) < maxHeat:
+            overclock += 0.1
+            overvolt += 0.1
+
+        bestComputation = getComputation(components, overclock, overvolt, racks)
+
+        # Narrow the Search and Fine Tune
+        for oc in np.arange(max(1, overclock - 0.4), overclock + 0.4, 0.01):
+            for ov in np.arange(max(1, overvolt - 0.4), overvolt + 0.4, 0.01):
+                computation = getComputation(components, oc, ov, racks)
+                if getHeat(components, oc, ov) < maxHeat and computation > bestComputation:
+                    bestComputation = computation
+                    overclock, overvolt = oc, ov
+
+    heat = getHeat(components, overclock, overvolt)
+    computation = getComputation(components, overclock, overvolt, racks)
+    powerEU, powerA = getPower(voltage, overclock, overvolt, racks)
+
+    printStats(components, voltage, overclock, overvolt, heat, computation, powerEU, powerA)
 
 
 if __name__ == "__main__":
